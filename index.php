@@ -114,11 +114,11 @@ $rows = $pdo->query($data)->fetchAll(PDO::FETCH_ASSOC); //把資料存到變數�
                     <div class="td_function">
                         <form action="./edit.php" method="post">
                             <input type="hidden" name="id" value="<?= $row['id'] ?>">
-                            <input type="button" value="編輯" id="editBn" onclick="location.href='edit.php'">
+                            <input type="submit" value="編輯" id="editBn" onclick="location.href='edit.php'">
                         </form>
                         <form action="./delete.php" method="post">
                             <input type="hidden" name="id" value="<?= $row['id'] ?>">
-                            <input type="button" value="刪除" id="delBn" onclick="location.href='delete.php'">
+                            <input type="submit" value="刪除" id="delBn" onclick="location.href='delete.php'">
                         </form>
                     </div>
                 </td>

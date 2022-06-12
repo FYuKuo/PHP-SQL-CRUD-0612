@@ -49,7 +49,7 @@ td {
     /* flex-direction: row; */
 }
 
-.td_function>form>input[type=button] {
+.td_function>form>input[type=submit] {
     margin: 0 5px;
     border: 1px solid rgba(255, 255, 255, 0);
     padding: 4px 8px;
