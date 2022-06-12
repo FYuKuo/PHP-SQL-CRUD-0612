@@ -38,7 +38,13 @@ $rows = $pdo->query($data)->fetchAll(PDO::FETCH_ASSOC); //把資料存到變數�
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>學生資訊查詢網</title>
+
+    <!-- fontawesome引入 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <!-- css檔案引入 -->
     <link rel="stylesheet" href="./style.css">
+
 </head>
 
 <body>
@@ -48,7 +54,7 @@ $rows = $pdo->query($data)->fetchAll(PDO::FETCH_ASSOC); //把資料存到變數�
         <tr>
 
             <!-- 表格的nav區 -->
-            <td colspan="11">
+            <td colspan="12">
                 <div class="nav">
 
                     <!-- 總共有幾筆資料 -->
@@ -67,6 +73,10 @@ $rows = $pdo->query($data)->fetchAll(PDO::FETCH_ASSOC); //把資料存到變數�
                             </select>
                         </form>
                     </div>
+
+                    <div class="nav_add">
+                        <button onclick="location.href='add.php'"><i class="fa-solid fa-plus"></i> 新增</button>
+                    </div>
                 </div>
             </td>
         </tr>
@@ -84,6 +94,7 @@ $rows = $pdo->query($data)->fetchAll(PDO::FETCH_ASSOC); //把資料存到變數�
             <td>電話</td>
             <td>科別</td>
             <td>畢業國中</td>
+            <td>功能</td>
         </tr>
 
         <!-- 用foreach取出二微陣列中第一層的索引值 -->
@@ -99,6 +110,18 @@ $rows = $pdo->query($data)->fetchAll(PDO::FETCH_ASSOC); //把資料存到變數�
                     echo "</td>";
                 }
                 ?>
+                <td>
+                    <div class="td_function">
+                        <form action="./edit.php" method="post">
+                            <input type="hidden" name="id" value="<?= $row['id'] ?>">
+                            <input type="button" value="編輯" id="editBn" onclick="location.href='edit.php'">
+                        </form>
+                        <form action="./delete.php" method="post">
+                            <input type="hidden" name="id" value="<?= $row['id'] ?>">
+                            <input type="button" value="刪除" id="delBn" onclick="location.href='delete.php'">
+                        </form>
+                    </div>
+                </td>
             </tr>
 
         <?php
@@ -106,7 +129,7 @@ $rows = $pdo->query($data)->fetchAll(PDO::FETCH_ASSOC); //把資料存到變數�
         ?>
         <tr>
             <!-- 頁數呈現區 -->
-            <td colspan="11" class='page_num'>
+            <td colspan="12" class='page_num'>
                 <?php
                 for ($i = 1; $i <= $pages; $i++) {
                     echo "<a href='index.php?page=$i&limit=$limit'>$i</a>";
