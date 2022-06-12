@@ -1,0 +1,29 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+}
+
+.nav {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+table {
+    border-collapse: collapse;
+    margin: 20px auto;
+}
+
+td {
+    border: 1px solid lightgray;
+    padding: 5px 10px;
+    text-align: center;
+    height: 40px;
+    line-height: 40px;
+}
+
+.page_num>a {
+    margin: 0 5px;
+    text-decoration: none;
+    color: rgb(37, 37, 37);
+}
